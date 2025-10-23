@@ -13,17 +13,17 @@ const mongodb = require("mongodb");
 
 
 
-mongoose
-  .connect(process.env.DB)
-  .then((done) => {
-    let port = process.env.PORT || 3001;
-    if(port == null || port == ""){
-      port = 3001
-    }
-    app.listen(port, () => console.log(`Server running on Port ${port}`));
-    console.log("Db connected");
-  })
-.catch((err) => console.log(err));
-
-
+// mongoose
+//   .connect(process.env.DB)
+//   .then((done) => {
+//   })
+//   .catch((err) => console.log(err));
+  
+  
   app.use(require("./routes/main"));
+  let port = process.env.PORT || 3001;
+  if(port == null || port == ""){
+    port = 3001
+  }
+  app.listen(port, () => console.log(`Server running on Port ${port}`));
+  console.log("Db connected");
